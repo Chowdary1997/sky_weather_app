@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sky-weather-app
+  namespace: sky-weather
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sky-weather-app
+  template:
+    metadata:
+      labels:
+        app: sky-weather-app
+    spec:
+      containers:
+        - name: sky-weather-app
+          image: daggu1997/sky-weather-app:v1
+          ports:
+            - containerPort: 3000
+
